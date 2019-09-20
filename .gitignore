@@ -1,0 +1,52 @@
+# ide settings
+.vs/
+.idea/
+
+# .net binaries
+obj/
+bin/
+
+# sonar scanner binaries except
+!tools/SonarScanner/.store/dotnet-sonarscanner/4.4.2/dotnet-sonarscanner/4.4.2/tools/netcoreapp2.1/any/sonar-scanner-3.2.0.1227/bin/
+
+# container binaries
+dist/
+
+# .net elasticsearch logs
+logs/
+
+# npm packages
+node_modules/
+
+#front
+lerna-debug.log
+js-packages/*/lib
+containers/*/src/lib
+**/coverage
+lerna-debug.log
+**/bundle-stats.json
+js-packages/plataforma-tools/config/storybook/config.js
+!js-packages/uikit-demo/dist
+js-packages/*/.awcache
+
+# user configurations
+*.user
+
+# docker compose generated files
+compose-config-output.*
+*.yml.compiled
+
+# script data inputs
+_input.json
+
+# fusebox cache
+.fusebox/
+
+# yarn error log
+yarn-error.log
+
+# test results
+TestResults/
+
+# sonarqube
+.sonarqube/
