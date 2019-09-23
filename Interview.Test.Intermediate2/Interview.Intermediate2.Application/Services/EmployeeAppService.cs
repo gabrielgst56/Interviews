@@ -4,6 +4,7 @@ using Interview.Intermediate2.Application.Interfaces;
 using Interview.Intermediate2.Application.ViewModels;
 using Interview.Intermediate2.Domain.Core.Bus;
 using Interview.Intermediate2.Domain.Core.Notifications;
+using Interview.Intermediate2.Domain.Entities;
 using Interview.Intermediate2.Domain.Interfaces;
 using MediatR;
 using System;
@@ -77,8 +78,7 @@ namespace Interview.Intermediate2.Application.Services
                     value = 2900 + balance * 0.05;
 
                 employee.Balance = balance - value;
-
-
+                Update(employee);
 
                 return $"Saque realizado, valor: {value}";
             }
@@ -90,17 +90,21 @@ namespace Interview.Intermediate2.Application.Services
 
         public void Register(EmployeeViewModel employeeViewModel)
         {
-            _employeeRepository.Add(employeeViewModel);
+            var entity = _mapper.Map<Employee>(employeeViewModel);
+
+            _employeeRepository.Add(entity);
         }
 
         public void Update(EmployeeViewModel employeeViewModel)
         {
-            _employeeRepository.Add(employeeViewModel);
+            var entity = _mapper.Map<Employee>(employeeViewModel);
+
+            _employeeRepository.Update(entity);
         }
 
         public void Remove(Guid id)
         {
-            _employeeRepository.Add(employeeViewModel);
+            _employeeRepository.Remove(id);
         }
 
         public void Dispose()

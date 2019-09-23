@@ -8,12 +8,17 @@ namespace Interview.Intermediate2.Infra.Repository
 {
     public class EmployeeRepository : IRepository<Employee>, IEmployeeRepository
     {
-        protected static readonly List<Employee> DbSet = new List<Employee>();
+        protected static readonly List<Employee> DbSet = GetDb();// new List<Employee>();
 
-        public EmployeeRepository()
+        public EmployeeRepository() {}
+
+        private static List<Employee> GetDb()
         {
-            DbSet.Add(new Employee(Guid.NewGuid(), "Gabriel", "gabrielgst56@hotmail.com",
-                1050.0, "Lincros", new DateTime(1999, 07, 14)));
+            var dbSet = new List<Employee>();
+            dbSet.Add(new Employee(new Guid("a3c26e43-ff7a-42eb-ac8a-795159ec432a"), "Gabriel", "gabrielgst56@hotmail.com",
+                1050.0, "Lincros", new DateTime(1999, 09, 23)));
+
+            return dbSet;
         }
 
         public virtual void Add(Employee obj)
