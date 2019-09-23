@@ -5,6 +5,7 @@ using Interview.Intermediate2.Application.ViewModels;
 using Interview.Intermediate2.Domain.Core.Bus;
 using Interview.Intermediate2.Domain.Core.Notifications;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Interview.Intermediate2.Api.Controllers
@@ -24,13 +25,14 @@ namespace Interview.Intermediate2.Api.Controllers
 
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Get()
         {
             return Response(_employeeAppService.GetAll());
         }
 
         [HttpGet]
-        [Route("/{id:guid}")]
+        [Route("{id}")]
         public IActionResult Get(Guid id)
         {
             var employeeViewModel = _employeeAppService.GetById(id);
@@ -75,7 +77,7 @@ namespace Interview.Intermediate2.Api.Controllers
         }
 
         [HttpGet]
-        [Route("/{id:guid}")]
+        [Route("withdraw/{id}")]
         public IActionResult WithdrawFromBalanceById(Guid id)
         {
             var employeeViewModel = _employeeAppService.WithdrawFromBalanceById(id);
