@@ -15,3 +15,12 @@ Esse pattern permite que você retorne mais de um erro ao usuário, diferente de
 
 Também utilizei AutoMapper para a transição das ViewModels para as Entities do meu Domain.
 
+
+# Execução
+
+
+Por padrão o projeto já cadastrará um funcionário em seu repositório. Para realizar o saque e retornar a lista de usuários utilize a seguinte collection do Postman:
+
+https://www.getpostman.com/collections/4d1f2e1b448920635a72
+
+Para importar vá em File > Import... > Import From Link
