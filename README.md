@@ -23,4 +23,4 @@ Por padrão o projeto já cadastrará um funcionário em seu repositório. Para 
 
 https://www.getpostman.com/collections/4d1f2e1b448920635a72
 
-Para importar vá em File > Import... > Import From Link
+*Obs.:* Para importar a collection vá em File > Import... > Import From Link
